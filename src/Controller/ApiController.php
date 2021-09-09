@@ -20,6 +20,7 @@ class ApiController extends AbstractController
 
         $url = file_get_contents("http://51.255.160.47:8181/euw1/passerelle/getHistoryMatchList/" . $username);
         $json = json_decode($url, true);
+        dump($json);
 
         foreach ($json['matches'] as $data) {
 
@@ -82,6 +83,7 @@ class ApiController extends AbstractController
      */
     public function showUserDetails(User $user)
     {
+
 
         return $this->render('api/details.html.twig', [
             'user' => $user
